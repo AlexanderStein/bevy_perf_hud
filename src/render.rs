@@ -10,9 +10,10 @@
 use bevy::{
     asset::Asset,
     math::Vec4,
+    prelude::UiMaterial,
     reflect::TypePath,
-    render::render_resource::{AsBindGroup, ShaderRef, ShaderType},
-    ui::UiMaterial,
+    render::render_resource::{AsBindGroup, ShaderType},
+    shader::ShaderRef,
 };
 
 use crate::constants::{MAX_CURVES, SAMPLES_VEC4};

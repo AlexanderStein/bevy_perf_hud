@@ -1,4 +1,4 @@
-use bevy::math::primitives::Cuboid;
+use bevy::shape::primitives::Cuboid;
 use bevy::prelude::*;
 use bevy_perf_hud::{
     BarConfig, BarScaleMode, BevyPerfHudPlugin, HudHandles, MetricDefinition, PerfHudSettings,

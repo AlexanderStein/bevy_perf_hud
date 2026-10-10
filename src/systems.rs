@@ -14,7 +14,7 @@ use bevy::{
     },
     prelude::*,
     text::{TextColor, TextFont},
-    ui::{FlexDirection, MaterialNode, Node, Overflow, PositionType, UiRect, Val},
+    ui::{FlexDirection, Node, Overflow, PositionType, UiRect, Val},
 };
 
 use crate::{
@@ -129,7 +129,7 @@ pub fn setup_hud(
                     Text::new(""),
                     TextColor(Color::WHITE),
                     TextFont {
-                        font_size: 10.0,
+                        font_size: FontSize::Px(10.0),
                         ..default()
                     },
                     Node {
@@ -266,7 +266,7 @@ pub fn setup_hud(
                         Text::new(base_label),
                         TextColor(Color::WHITE),
                         TextFont {
-                            font_size: 10.0,
+                            font_size: FontSize::Px(10.0),
                             ..default()
                         },
                         Node {
@@ -532,7 +532,7 @@ pub fn update_graph_and_bars(
     // Update graph material (when enabled)
     if s.graph.enabled {
         if let Some(handle) = &h.graph_material {
-            if let Some(mat) = graph_mats.get_mut(handle) {
+            if let Some(mut mat) = graph_mats.get_mut(handle) {
                 mat.params.length = history.length;
                 mat.params.min_y = current_min;
                 mat.params.max_y = current_max;
@@ -624,7 +624,7 @@ pub fn update_graph_and_bars(
                 0.0
             };
 
-            if let Some(mat) = bar_mats.get_mut(&h.bar_materials[i]) {
+            if let Some(mut mat) = bar_mats.get_mut(&h.bar_materials[i]) {
                 mat.params.value = norm;
                 let v = cfg.metric.color.to_linear().to_vec4();
                 mat.params.r = v.x;

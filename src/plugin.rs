@@ -10,7 +10,7 @@ use bevy::{
     },
     ecs::schedule::common_conditions::resource_changed,
     prelude::IntoScheduleConfigs,
-    ui::UiMaterialPlugin,
+    prelude::UiMaterialPlugin,
 };
 
 use crate::{
@@ -47,7 +47,7 @@ impl Plugin for BevyPerfHudPlugin {
         };
 
         if !app.is_plugin_added::<EntityCountDiagnosticsPlugin>() {
-            app.add_plugins(EntityCountDiagnosticsPlugin);
+            app.add_plugins(EntityCountDiagnosticsPlugin::default());
         };
 
         if !app.is_plugin_added::<SystemInformationDiagnosticsPlugin>() {
